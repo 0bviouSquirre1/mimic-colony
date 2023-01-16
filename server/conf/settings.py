@@ -33,6 +33,8 @@ from evennia.settings_default import *
 
 # This is the name of your game. Make it catchy!
 SERVERNAME = "mimic-colony"
+EXTRA_LAUNCHER_COMMANDS['xyzgrid'] = 'evennia.contrib.grid.xyzgrid.launchcmd.xyzcommand'
+PROTOTYPE_MODULES += ['evennia.contrib.grid.xyzgrid.prototypes']
 
 
 ######################################################################
