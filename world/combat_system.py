@@ -13,3 +13,10 @@
 # hit chance = 100 - def(10)
 #
 # damage = dmg(10) // 10, 20, or 30 damage
+
+from random import randint
+
+def attack(self, attacker, defender):
+    hit_chance = 100 - defender.defense(10)
+    damage = attacker.weapon.damage(10)
+    pass

@@ -59,8 +59,7 @@ class Object(ObjectParent, DefaultObject):
      has_account (bool, read-only)- will only return *connected* accounts
      contents (list of Objects, read-only) - returns all objects inside this
                        object (including exits)
-     exits (list of Objects, read-only) - returns all exits from this
-                       object, if any
+     exits (list of Objects, read-only) - returns all exits from this object, if any
      destination (Object) - only set if this object is an exit.
      is_superuser (bool, read-only) - True/False if this user is a superuser
 
