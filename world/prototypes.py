@@ -87,6 +87,18 @@ CHEST_MIMIC = {
    }
 }
 
+RED_DRAGON = {
+   "key": "red dragon",
+   "typeclass": NPCSTRING,
+   "desc": "A huge and terrifying red dragon looms here, looking hungry.",
+   "attrs": {
+      ("hit_points", 100, "stats"),
+      ("defense", 5, "stats"),
+      ("carried_gold", lambda: randint(50,100), "wealth")
+      ("carried_gems", lambda: randint(10,30), "wealth")
+   }
+}
+
 #
 # GOBLIN = {
 # "key": "goblin grunt",
