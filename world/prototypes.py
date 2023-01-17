@@ -25,10 +25,8 @@ or directly via `evennia.spawn` or the full path `evennia.prototypes.spawner.spa
 A prototype dictionary have the following keywords:
 
 Possible keywords are:
-- `prototype_key` - the name of the prototype. This is required for db-prototypes,
-  for module-prototypes, the global variable name of the dict is used instead
-- `prototype_parent` - string pointing to parent prototype if any. Prototype inherits
-  in a similar way as classes, with children overriding values in their parents.
+- `prototype_key` - the name of the prototype. This is required for db-prototypes, for module-prototypes, the global variable name of the dict is used instead
+- `prototype_parent` - string pointing to parent prototype if any. Prototype inherits in a similar way as classes, with children overriding values in their parents.
 - `key` - string, the main object identifier.
 - `typeclass` - string, if not set, will use `settings.BASE_OBJECT_TYPECLASS`.
 - `location` - this should be a valid object or #dbref.
@@ -37,9 +35,7 @@ Possible keywords are:
 - `permissions` - string or list of permission strings.
 - `locks` - a lock-string to use for the spawned object.
 - `aliases` - string or list of strings.
-- `attrs` - Attributes, expressed as a list of tuples on the form `(attrname, value)`,
-  `(attrname, value, category)`, or `(attrname, value, category, locks)`. If using one
-   of the shorter forms, defaults are used for the rest.
+- `attrs` - Attributes, expressed as a list of tuples on the form `(attrname, value)`, `(attrname, value, category)`, or `(attrname, value, category, locks)`. If using one of the shorter forms, defaults are used for the rest.
 - `tags` - Tags, as a list of tuples `(tag,)`, `(tag, category)` or `(tag, category, data)`.
 -  Any other keywords are interpreted as Attributes with no category or lock.
    These will internally be added to `attrs` (equivalent to `(attrname, value)`.
@@ -52,7 +48,45 @@ See the `spawn` command and `evennia.prototypes.spawner.spawn` for more info.
 ## the variable name as `prototype_key` and
 ## simple Attributes
 
-# from random import randint
+from random import randint
+
+NPCSTRING = "typeclasses.characters.NPCharacter"
+
+TORCH_MIMIC = {
+   "key": "torch mimic",
+   "typeclass": NPCSTRING,
+   "desc": "A torch burns merrily in a sconce on the wall here.",
+   "attrs": {
+      ("hit_points", 10, "stats"),
+      ("defense", 1, "stats"),
+      ("carried_gold", lambda: randint(0,5), "wealth")
+   }
+}
+
+BARREL_MIMIC = {
+   "key": "barrel mimic",
+   "typeclass": NPCSTRING,
+   "desc": "A wooden barrel held together with bronze hoops has been forgotten here.",
+   "attrs": {
+      ("hit_points", 50, "stats"),
+      ("defense", 2, "stats"),
+      ("carried_gold", lambda: randint(0,20), "wealth"),
+      ("carried_gems", lambda: randint(0,3), "wealth")
+   }
+}
+
+CHEST_MIMIC = {
+   "key": "chest mimic",
+   "typeclass": NPCSTRING,
+   "desc": "A wooden chest has been squirreled away here, its iron lock rusted and broken.",
+   "attrs": {
+      ("hit_points", 75, "stats"),
+      ("defense", 3, "stats"),
+      ("carried_gold", lambda: randint(5,50), "wealth"),
+      ("carried_gems", lambda: randint(1,10), "wealth")
+   }
+}
+
 #
 # GOBLIN = {
 # "key": "goblin grunt",
