@@ -94,10 +94,12 @@ RED_DRAGON = {
    "attrs": {
       ("hit_points", 100, "stats"),
       ("defense", 5, "stats"),
-      ("carried_gold", lambda: randint(50,100), "wealth")
+      ("carried_gold", lambda: randint(50,100), "wealth"),
       ("carried_gems", lambda: randint(10,30), "wealth")
    }
 }
+
+
 
 #
 # GOBLIN = {
