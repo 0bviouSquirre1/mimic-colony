@@ -25,6 +25,8 @@ class CmdAttack(Command):
 
         caller.location.msg_contents(string)
 
+        yield (3/caller.weapon.speed)
+
 class ColonyCmdSet(CmdSet):
     def at_cmdset_creation(self):
         self.add(CmdAttack)

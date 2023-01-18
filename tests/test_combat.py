@@ -64,3 +64,5 @@ class TestCombatCommands(EvenniaCommandTest):
             f"{self.char2}",
             f"{attacker} hits {defender} for 10 points of damage."
         )
+
+        self.assertEquals(self.char2.hit_points, 90)
