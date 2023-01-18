@@ -99,7 +99,33 @@ RED_DRAGON = {
    }
 }
 
+WEAPONSTRING = 'typeclasses.colony_objects.Weapon'
 
+DAGGER = {
+   "key": "dagger",
+   "typeclass": WEAPONSTRING,
+   "desc": "A wickedly sharp dagger",
+   "attrs": {
+      ("speed", 3, "stats")
+      ("damage", 1, "stats")
+   }
+}
+AXE = {
+   "key": "axe",
+   "typeclass": WEAPONSTRING,
+   "desc": "A wickedly sharp axe",
+   "attrs": {
+      ("speed", 2, "stats")
+      ("damage", 2, "stats")
+   }
+}
+HAMMER = {"key": "hammer",
+   "typeclass": WEAPONSTRING,
+   "desc": "A weighty hammer",
+   "attrs": {
+      ("speed", 1, "stats")
+      ("damage", 3, "stats")
+   }}
 
 #
 # GOBLIN = {

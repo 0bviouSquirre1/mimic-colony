@@ -32,6 +32,8 @@ class Character(ObjectParent, DefaultCharacter):
     kills = AttributeProperty(0, category="tallies", autocreate=False)
     victories = AttributeProperty(0, category="tallies", autocreate=False)
 
+    weapon = AttributeProperty(None, category="wealth")
+
 class NPCharacter(Character):
 
     pass
