@@ -17,17 +17,16 @@
 from random import randint
 
 def attack(attacker, defender):
-    hit_chance = defender.defense * 10
-    does_hit = randint(hit_chance, 100)
+    string = ""
+    hit_difficulty = defender.defense * 10
+    does_hit = randint(0, 100) > hit_difficulty
     if does_hit:
         damage = attacker.weapon.damage * 10
         defender.hit_points -= damage
-        attacker.msg(f"You hit {defender} for {damage} points of damage.")
-        defender.msg(f"You take {damage} points of damage.")
+        string += f"{attacker} hits {defender} for {damage} points of damage."
         if defender.hit_points <= 0:
-            defender.msg("You die")
-            attacker.msg("You win")
+            string += f"\n{defender} dies, {attacker} wins!"
     else:
-        attacker.msg("Miss")
-
-    pass
+        string += f"{attacker} swings at {defender} and misses!"
+    
+    return string
