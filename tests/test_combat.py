@@ -1,7 +1,7 @@
-from evennia.utils.test_resources import EvenniaTest
+from evennia.utils.test_resources import EvenniaTest, EvenniaCommandTest
 from evennia import prototypes
 from world import combat_system
-from typeclasses import colony_objects
+from commands import colony_commands
 
 class TestWeapons(EvenniaTest):
     def test_create_weapon(self):
@@ -48,3 +48,19 @@ class TestCombat(EvenniaTest):
         
         self.assertEquals(string, test_string)
         self.assertEquals(defender.hit_points, 0)
+
+class TestCombatCommands(EvenniaCommandTest):
+    def setUp(self):
+        super().setUp()
+        dagger = prototypes.spawner.spawn("dagger")[0]
+        self.char1.weapon = dagger
+
+    def test_attack_cmd(self):
+        attacker = self.char1
+        defender = self.char2
+
+        self.call(
+            colony_commands.CmdAttack(),
+            f"{self.char2}",
+            f"{attacker} hits {defender} for 10 points of damage."
+        )
