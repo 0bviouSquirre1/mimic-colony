@@ -20,12 +20,21 @@ def attack(attacker, defender):
     string = ""
     hit_difficulty = defender.defense * 10
     does_hit = randint(0, 100) > hit_difficulty
+
     if does_hit:
-        damage = attacker.weapon.damage * 10
+        if not attacker.weapon:
+            damage = 1
+            string += f"{attacker} punches {defender} for {damage} points of damage."
+        else:
+            damage = attacker.weapon.damage * 10
+            string += f"{attacker} hits {defender} with their {attacker.weapon} for {damage} points of damage."
+
         defender.hit_points -= damage
-        string += f"{attacker} hits {defender} for {damage} points of damage."
         if defender.hit_points <= 0:
             string += f"\n{defender} dies, {attacker} wins!"
+            defender.hit_points = 0
+            attacker.kills += 1
+            defender.deaths += 1
     else:
         string += f"{attacker} swings at {defender} and misses!"
     
